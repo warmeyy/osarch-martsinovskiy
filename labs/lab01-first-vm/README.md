@@ -7,14 +7,18 @@ Date:25.10.2026
 ## What I did
 
 1. Installed VirtualBox 7.x hypervisor.
-2. Created VM lab01-ubuntu: 2 vCPU, 4 GB RAM, 25 GB dynamic disk, NAT network mode.
+2. Created VM lab01-ubuntu: 4 vCPU, 4 GB RAM, 25 GB dynamic disk, NAT network mode.
 3. Installed Ubuntu Server, took snapshot "clean-install".
 4. Broke it: ran sudo rm /etc/hostname to delete the system hostname configuration file.
-5. Rolled back to clean-install: used VirtualBox Snapshot Restore feature to completely revert the damage.
+5. Rolled back to clean-install: used VirtualBox Snapshot Restore feature to completely revert the damage. then ran 
+cat /etc/hostname ang got
+lab01-martsinovskiy
+ran hostname got
+lab01-martsinovskiy
 
 ## Resource justification
 
-I allocated 2 vCPU cores and 4 GB of RAM because it is fully sufficient for running a headless Ubuntu Server without a graphical user interface. Since my host machine has a 32-core CPU, allocating 2 cores leaves plenty of resources for Windows to run smoothly
+I allocated 4 vCPU cores and 4 GB of RAM because it is fully sufficient for running a headless Ubuntu Server without a graphical user interface. Since my host machine has a 32-core CPU, allocating 4 cores leaves plenty of resources for Windows to run smoothly. 4 GB of RAM is more than enough for smooth caching and operation, while leaving 28 GB of RAM for Windows to ensure lag-free multitasking on the host.
 
 ## Result
 The VM boots; the break-and-rollback cycle is shown in the evidence below.
