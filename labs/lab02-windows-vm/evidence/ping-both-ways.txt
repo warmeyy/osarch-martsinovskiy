@@ -1,0 +1,17 @@
+1. Windows VM -> Ubuntu VM
+Command: ping 10.0.2.4
+Packets: Sent = 4, Received = 4, Lost = 0
+
+2. Ubuntu VM -> Windows VM
+Command: ping -c 4 10.0.2.5
+Packets: 4 transmitted, 4 received, 0% packet loss
+
+3. Ubuntu VM -> Internet
+Command: ping -c 4 ubuntu.com
+Packets: 4 transmitted, 4 received, 0% packet loss
+
+4. Windows VM -> Internet
+Command: ping ubuntu.com
+Packets: Sent = 4, Received = 4, Lost = 0
+
+Windows Firewall: inbound ICMPv4 rule added
