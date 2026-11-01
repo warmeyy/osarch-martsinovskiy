@@ -11,7 +11,7 @@ Date:25.10.2026
 3. Installed Ubuntu Server, took snapshot "clean-install".
 4. Broke it: ran sudo rm /etc/hostname to delete the system hostname configuration file.
 5. Rolled back to clean-install: used VirtualBox Snapshot Restore feature to completely revert the damage. then ran 
-cat /etc/hostname ang got
+cat /etc/hostname and got
 lab01-martsinovskiy
 ran hostname got
 lab01-martsinovskiy
