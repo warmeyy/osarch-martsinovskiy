@@ -108,3 +108,12 @@ The evidence files below must be placed in the `evidence/` folder. The two text 
 ## 5. What I would do differently
 
 For the next build, I would ask Aigerim about the developer's actual toolchain and whether a Linux desktop is needed before choosing Ubuntu Server. I would also give the Windows VM more than 64 GB of virtual disk space if the developer needs several IDEs, SDKs, containers, or large projects. Finally, I would name both clean snapshots clearly, record the NAT Network name, and capture full unedited command output during the build instead of reconstructing evidence afterwards.
+
+
+
+## AI Use 
+
+I used ChatGPT as an AI assistant
+AI was used to:
+Explain VirtualBox settings
+Help prepare the README.md and BUILD.md
