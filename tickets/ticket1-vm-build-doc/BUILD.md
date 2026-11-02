@@ -32,8 +32,6 @@ On the **host computer**, open the official [Oracle VirtualBox downloads page](h
 
 The VirtualBox base package is offered under GPLv3. Do not download or install the Extension Pack for this exercise: basic virtual machines, snapshots, and NAT Network do not require it. The Extension Pack has separate licence terms.
 
-![VirtualBox installation](evidence/screenshots/01-virtualbox-install.png)
-
 > **Check:** Open Oracle VM VirtualBox Manager from the Start menu. The application window should open without an installation error.
 
 ## Step 3. Download the two operating-system images
@@ -44,7 +42,6 @@ Next, open Microsoft's [Windows 11 Enterprise Evaluation Center](https://www.mic
 
 Save both ISO files in a folder that will not be moved while the VMs are using them, for example `D:\ISO`. Do not delete the ISOs until both installations are complete.
 
-![Operating-system ISO files](evidence/screenshots/02-iso-downloads.png)
 
 > **Check:** You should have one Ubuntu Server `.iso` file and one Windows 11 Enterprise Evaluation `.iso` file. Keep the official download pages in your build notes.
 
@@ -54,7 +51,7 @@ On the **host computer**, open VirtualBox Manager. Open **Tools → Network** or
 
 Use a NAT Network rather than ordinary NAT. Ordinary NAT gives a guest internet access, but it does not provide direct guest-to-guest communication by default. NAT Network behaves more like a small private router: guests attached to the same NAT Network can communicate with each other and reach external networks.
 
-![NAT Network in Network Manager](evidence/screenshots/03-nat-network-manager.png)
+![NAT Network in Network Manager](evidence/screenshots/03-network-adapter.png)
 
 > **Check:** The NAT Network should appear in the list and be enabled. Record its exact name; you must select the same name for both guests.
 
@@ -66,7 +63,7 @@ Set **Base Memory** to **4,090 MB**, **Processors** to **2**, and create a new v
 
 ![Ubuntu New VM wizard](evidence/01-new-vm-wizard.png)
 
-![Ubuntu virtual disk settings](evidence/02-disk-settings.png)
+![Ubuntu virtual disk settings](evidence/02-disk-settings-ubuntu.png)
 
 > **Check:** The VM appears in the VirtualBox machine list. Before starting it, open **Settings → System** and verify 4,090 MB RAM and 2 CPUs. Under **Settings → Storage**, verify the 25 GB virtual disk is dynamically allocated.
 
@@ -94,8 +91,6 @@ Check the current IP address:
 ip -4 addr
 ```
 
-![Ubuntu Server installation](evidence/screenshots/04-ubuntu-installation.png)
-
 > **Check:** Ubuntu boots from its virtual disk, you can sign in, and `uname -a` displays Linux kernel and architecture information. `lsb_release -a` should identify the installed Ubuntu release.
 
 ## Step 7. Create the Windows 11 VM
@@ -104,9 +99,8 @@ On the **host computer**, return to VirtualBox Manager and click **New**. Name t
 
 Set **Base Memory** to **4,090 MB**, **Processors** to **4**, and create a **64 GB dynamically allocated** virtual disk. This is the reference Lab 2 configuration. The disk size matches the Windows 11 minimum storage baseline, but it can be tight if the developer installs several large IDEs, SDKs, or containers.
 
-![Windows New VM wizard](evidence/screenshots/05-windows-vm-wizard.png)
 
-![Windows virtual disk settings](evidence/screenshots/06-windows-disk-settings.png)
+![Windows virtual disk settings](evidence/screenshots/02-disk-settings-ubuntu.png)
 
 > **Check:** The Windows VM appears in the machine list with 4,090 MB RAM, 4 virtual CPUs, and a 64 GB dynamic disk.
 
@@ -114,7 +108,6 @@ Set **Base Memory** to **4,090 MB**, **Processors** to **4**, and create a **64 
 
 On the **host computer**, make sure `lab02-windows` is fully powered off, not merely saved. Select it and open **Settings → System → Motherboard**. Enable **UEFI** and **Secure Boot**. In the TPM setting, select **TPM 2.0**. These settings are required to meet the important Windows 11 firmware and security requirements. Do not apply these Windows-specific settings to Ubuntu unless you have a separate reason to do so.
 
-![Windows UEFI, Secure Boot, and TPM settings](evidence/screenshots/07-windows-security-settings.png)
 
 > **Check:** Reopen the settings and confirm UEFI and Secure Boot are enabled and TPM Version is 2.0 before starting the Windows installer.
 
@@ -124,7 +117,6 @@ On the **host computer**, select `lab02-windows` and click **Start**. The instal
 
 Complete the first-run setup and sign in using the account method allowed by the evaluation image. A product key is not required for Microsoft's evaluation download, but the evaluation is time-limited. Install available Windows updates before creating the clean snapshot.
 
-![Windows 11 installation](evidence/screenshots/08-windows-installation.png)
 
 > **Check:** Windows starts from the virtual disk and reaches the desktop. Open Settings → System → About to confirm the guest is Windows 11 Enterprise.
 
@@ -158,7 +150,6 @@ ping ubuntu.com
 
 Save the full output from both terminals, including the commands and packet statistics, in `evidence/05-ping-between-guests.txt`. Do not rewrite the output as a summary. If you collect output in separate files first, paste the complete terminal output into this one evidence file without editing the command results.
 
-![Connectivity checks](evidence/screenshots/09-connectivity-tests.png)
 
 > **Check:** Both guest-to-guest tests and both internet tests should succeed. The reference build reported 4 packets sent, 4 received, and 0 lost for all four tests.
 
