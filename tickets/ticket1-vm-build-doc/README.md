@@ -41,8 +41,8 @@ I assumed the supplied Lab 0 computer is the host for this build; the required g
 |---|---:|---|
 | RAM | 32 GB | 4,090 MB for each VM uses about 8 GB in total and leaves about 24 GB for the host while both VMs are running. |
 | CPU | 16 CPU processors (Lab 0 figure) | Ubuntu uses 2 virtual CPUs and Windows uses 4, for 6 virtual CPUs in total. |
-| Drive C: free | 936,747,548,672 bytes (about 936.7 GB) | More than enough free space, but it is also the Windows system drive. |
-| Drive D: free | 1,024,068,804,608 bytes (about 1,024.1 GB) | A suitable location for VM files if the office wants to keep them separate from the host OS. |
+| Drive C: free | about 936.7 GB | More than enough free space, but it is also the Windows system drive. |
+| Drive D: free |  about 1,024.1 GB | A suitable location for VM files if the office wants to keep them separate from the host OS. |
 | Maximum virtual disk capacity | 25 GB + 64 GB = 89 GB | This is the combined maximum capacity before snapshot growth. Dynamic disks grow as data is written, so they do not occupy the full maximum size immediately. |
 
 The resource allocation is modest compared with the host: the two guests are allocated approximately 8 GB of the host's 32 GB RAM. The 89 GB combined virtual disk capacity is also small compared with the free space on either host drive. Snapshot files can grow over time, so free disk space still needs to be monitored.
