@@ -23,7 +23,6 @@ On the **host computer (the physical Windows 11 laptop)**, open **Task Manager â
 
 Choose a drive with enough free space and permission to store large files. In the reference build, D: is the sensible place for the VM folder because it has about 1 TB free and keeps VM files separate from the Windows system drive.
 
-![Host resource check](evidence/screenshots/00-host-resources.png)
 
 > **Check:** You should know the host's total RAM, CPU count, and free disk space before assigning resources. Never give the VMs all the host's RAM or CPU capacity.
 
