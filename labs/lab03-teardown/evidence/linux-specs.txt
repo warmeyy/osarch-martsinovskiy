@@ -1,0 +1,69 @@
+$ lscpu
+Architecture:                x86_64
+  CPU op-mode(s):            32-bit, 64-bit
+  Address sizes:             48 bits physical, 48 bits virtual
+  Byte Order:                Little Endian
+CPU(s):                      2
+  On-line CPU(s) list:       0,1
+Vendor ID:                   AuthenticAMD
+  Model name:                AMD Ryzen 5 4600H with Radeon Graphics
+    CPU family:              23
+    Model:                   96
+    Thread(s) per core:      1
+    Core(s) per socket:      2
+    Socket(s):               1
+    Stepping:                1
+    BogoMIPS:                5988.75
+Virtualization features:
+  Hypervisor vendor:         KVM
+  Virtualization type:       full
+NUMA:
+  NUMA node(s):              1
+  NUMA node0 CPU(s):         0,1
+Vulnerabilities:
+  Gather data sampling:      Not affected
+  Ghostwrite:                Not affected
+  Indirect target selection: Not affected
+  Itlb multihit:             Not affected
+  L1tf:                      Not affected
+  Mds:                       Not affected
+  Meltdown:                  Not affected
+  Mmio stale data:           Not affected
+  Old microcode:             Not affected
+  Reg file data sampling:    Not affected
+  Retbleed:                  Mitigation; untrained return thunk; SMT disabled
+  Spec rstack overflow:      Mitigation; SMT disabled
+  Spec store bypass:         Not affected
+  Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:                Mitigation; Retpolines; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+  Srbds:                     Not affected
+  Tsa:                       Not affected
+  Tsx async abort:           Not affected
+  Vmscape:                   Not affected
+ 
+$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.3Gi       405Mi       2.8Gi       1.0Mi       292Mi       2.9Gi
+Swap:          2.0Gi          0B       2.0Gi
+ 
+$ sudo dmidecode -t memory | head -50
+# dmidecode 3.6
+Getting SMBIOS data from sysfs.
+SMBIOS 2.5 present.
+ 
+$ lsblk -d -o NAME,MODEL,ROTA,TRAN,SIZE
+NAME MODEL          ROTA TRAN   SIZE
+loop0                  1        1.5M
+loop1                  1       50.1M
+loop2                  1       66.8M
+loop3                  1        1.3M
+sda  VBOX HARDDISK     1 sata    25G
+sr0  VBOX CD-ROM       0 ata   1024M
+ 
+$ df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2        25G  5.2G   19G  23% /
+ 
+$ uname -m
+x86_64
+ 
